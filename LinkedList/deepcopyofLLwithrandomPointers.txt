@@ -1,4 +1,5 @@
-//Given a linked list whose each node's random pointer pointing to another node and next pointer pointing to next node, create another copy of the linked //list same as the original one
+//Given a linked list whose each node's random pointer pointing to another node and next pointer pointing to next node, create another copy of the linked 
+//list same as the original one
 
 
 
