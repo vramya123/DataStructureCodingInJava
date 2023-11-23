@@ -1,0 +1,117 @@
+//Given a linked list whose each node's random pointer pointing to another node and next pointer pointing to next node, create another copy of the linked //list same as the original one
+
+
+
+
+import java.io.*;
+import java.util.*;
+
+class LinkedNode{
+    
+    public int val;
+    public LinkedNode next;
+    public LinkedNode random;
+    public LinkedNode(){
+    }
+    public LinkedNode(int val){
+        this.val = val;
+        this.next = null;
+        this.random = null;
+    }
+    public LinkedNode(int val, LinkedNode next, LinkedNode random){
+        this.val = val;
+        this.next = next;
+        this.random = random;
+    }
+    
+}
+
+public class Solution{
+    
+    public static LinkedNode deepCopyOfLLWithRandomLinks(LinkedNode head){
+        
+        //Base case
+        
+        if(head == null) return null;
+        
+        //declarations
+        Map<LinkedNode, LinkedNode> hm = new HashMap<>();
+        LinkedNode cur = head;
+        
+        //Add first node to hashmap
+        hm.put(cur, new LinkedNode(cur.val));
+        
+        while(cur != null){
+            
+            LinkedNode curClone = hm.get(cur);
+            
+            //Check if random exists in hashmap
+            
+            if(cur.random != null && !hm.containsKey(cur.random)){
+                hm.put(cur.random, new LinkedNode(cur.random.val));
+            }
+            
+            //Get random pointed node and establish connection between cur and random 
+            LinkedNode curRandom = hm.get(cur.random);
+            curClone.random = curRandom;
+            
+            
+            //Check if next exists in hashmap
+            if(cur.next != null && !hm.containsKey(cur.next)){
+                hm.put(cur.next, new LinkedNode(cur.next.val));
+            }
+            
+            LinkedNode nxt = hm.get(cur.next);
+            curClone.next = nxt;
+            
+            //increment cur
+            cur = cur.next;
+            
+        }
+      return hm.get(head);
+        
+    }
+    
+    
+    public static void main(String[] args){
+        
+        //1,2,3,4,5
+        
+        LinkedNode a1 = new LinkedNode(1);
+        LinkedNode a2 = new LinkedNode(2);
+        LinkedNode a3 = new LinkedNode(3);
+        LinkedNode a4 = new LinkedNode(4);
+        LinkedNode a5 = new LinkedNode(5);
+        a1.next=a2;
+        a2.next=a3;
+        a3.next=a4;
+        a4.next=a5;
+        a5.next=null;
+        a1.random = a5;
+        a2.random = a4;
+        a3.random = a2;
+        a4.random = null;
+        a5.random = a3;
+        
+        //6,7,8,9,1
+        
+        LinkedNode b1 = new LinkedNode(6);
+        LinkedNode b2 = new LinkedNode(7);
+        LinkedNode b3 = new LinkedNode(8);
+        LinkedNode b4 = new LinkedNode(9);
+        LinkedNode b5 = new LinkedNode(1);
+        b1.next=b2;
+        b2.next=b3;
+        b3.next=b4;
+        b4.next=b5;
+        b5.next=null;
+        
+        LinkedNode dum = deepCopyOfLLWithRandomLinks(a1);
+        
+        while(dum != null){
+            System.out.print(dum.val);
+            dum = dum.next;
+        }
+    }
+    
+}

@@ -1,0 +1,117 @@
+
+//Given a linked list, reverse every K  nodes 
+//eg: 1-> 2-> 3-> 4->5
+//o/p : 1-> 1-> 4-> 3-> 5  k=2
+
+import java.io.*;
+import java.util.*;
+
+class LinkedNode{
+    
+    int val;
+    LinkedNode next;
+    public LinkedNode(){
+    }
+    public LinkedNode(int val){
+        this.val = val;
+    }
+    public LinkedNode(int val, LinkedNode next){
+        this.val = val;
+        this.next = next;
+    }
+    public int getVal(){
+        return val;
+    }
+}
+
+public class Solution{
+    
+    public static LinkedNode reverseASubLinkedList(LinkedNode head, int k){
+        
+        
+      //base case
+      if(head.next == null) return head;
+      
+      if(k == 1) return head;
+      
+      
+      //declaration
+      LinkedNode dummy = new LinkedNode();
+      dummy.next = head;
+      LinkedNode prev = dummy;
+      LinkedNode cur = head;
+      
+      //reverse sublist
+      
+      while(cur != null){
+          boolean space = isSpaceThere(cur,k);
+          if(space){
+              prev = reverse(prev,cur,k);
+              cur = prev.next;
+          }else
+            break;
+      }
+      
+      return dummy.next;
+        
+    }
+    
+    public static boolean isSpaceThere(LinkedNode cur, int k){
+        for(int i=1;i<=k;i++){
+            if(cur == null) return false;
+           cur = cur.next;
+        }
+        return true;
+        
+    }
+    
+    public static LinkedNode reverse(LinkedNode prev, LinkedNode cur, int k){
+        
+        for(int i=0; i < k-1; i++){
+             LinkedNode nxt = cur.next;
+             cur.next = nxt.next;
+             nxt.next = prev.next;
+             prev.next = nxt;
+        }
+        
+        return cur;
+        
+    }
+    
+    public static void main(String[] args){
+        
+        //1,2,3,4,5
+        
+        LinkedNode a1 = new LinkedNode(1);
+        LinkedNode a2 = new LinkedNode(2);
+        LinkedNode a3 = new LinkedNode(3);
+        LinkedNode a4 = new LinkedNode(4);
+        LinkedNode a5 = new LinkedNode(5);
+        a1.next=a2;
+        a2.next=a3;
+        a3.next=a4;
+        a4.next=a5;
+        a5.next=null;
+        
+        //6,7,8,9,1
+        
+        LinkedNode b1 = new LinkedNode(6);
+        LinkedNode b2 = new LinkedNode(7);
+        LinkedNode b3 = new LinkedNode(8);
+        LinkedNode b4 = new LinkedNode(9);
+        LinkedNode b5 = new LinkedNode(1);
+        b1.next=b2;
+        b2.next=b3;
+        b3.next=b4;
+        b4.next=b5;
+        b5.next=null;
+        
+        LinkedNode dum = reverseASubLinkedList(a1,2);
+        
+        while(dum != null){
+            System.out.print(dum.getVal());
+            dum = dum.next;
+        }
+    }
+    
+}
