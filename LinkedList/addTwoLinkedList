@@ -1,0 +1,129 @@
+Approach
+=========
+
+1) dummy is a new node used to track the head node of sum 
+prev is a pointer to dummy which is incremented each time
+LinkedNode dummy = new LinkedNode();
+LinkedNode prev = dummy;
+2) while wither one of the LL becomes null do below steps:
+1. get val and val2 
+2. compute sum with CF
+3. set back CF to zero
+4. Check if sum is greater than, if so set CF to 1
+5. Create a new node with sum value
+6. Update  links
+    prev.next = cur;
+	prev = cur;
+7. Update the l1 and l2 
+ 
+3) After while loop, check if CF is greater than 1 then create new node and update only prev.next and cur is not needed as its end.
+4) return dummy;
+
+
+
+
+
+import java.io.*;
+import java.util.*;
+
+class LinkedNode{
+    
+    int val;
+    LinkedNode next;
+    public LinkedNode(){
+    }
+    public LinkedNode(int val){
+        this.val = val;
+    }
+    public LinkedNode(int val, LinkedNode next){
+        this.val = val;
+        this.next = next;
+    }
+    public int getVal(){
+        return val;
+    }
+}
+
+public class Solution{
+    
+    public static LinkedNode addTwoLinkedList(LinkedNode l1 , LinkedNode l2){
+        
+        //declaration
+        
+        LinkedNode dummy = new LinkedNode();
+        LinkedNode prev = new LinkedNode();
+        prev = dummy;
+        
+        int carryForward = 0;
+        
+        //Traverse through both LinkedList until either of them is empty
+        
+        while( l1 !=null || l2 != null){
+            
+            int val1 = l1 !=null ? l1.val: 0;
+            int val2 = l2 !=null ? l2.val : 0;
+            
+            int sum = val1 + val2 + carryForward;
+            
+            //reset carryforward whenever you use it
+            carryForward = 0;
+            
+            //check if new sum is greater than 9 to fill carryforward
+            if(sum > 9 ){
+                carryForward++;
+            }
+            
+            LinkedNode cur = new LinkedNode(sum);
+            
+            prev.next = cur;
+            prev = cur;
+			
+			l1 = l1 != null? l1.next : null;
+            l2 = l2!= null ? l2.next : null;
+            
+        }
+        if(carryForward != 0){
+            LinkedNode cur = new LinkedNode(1);
+            prev.next = cur;
+        }
+        
+        return dummy.next;
+    }
+    
+    public static void main(String[] args){
+        
+        //1,2,3,4,5
+        
+        LinkedNode a1 = new LinkedNode(1);
+        LinkedNode a2 = new LinkedNode(2);
+        LinkedNode a3 = new LinkedNode(3);
+        LinkedNode a4 = new LinkedNode(4);
+        LinkedNode a5 = new LinkedNode(5);
+        a1.next=a2;
+        a2.next=a3;
+        a3.next=a4;
+        a4.next=a5;
+        a5.next=null;
+        
+        //6,7,8,9,1
+        
+        LinkedNode b1 = new LinkedNode(6);
+        LinkedNode b2 = new LinkedNode(7);
+        LinkedNode b3 = new LinkedNode(8);
+        LinkedNode b4 = new LinkedNode(9);
+        LinkedNode b5 = new LinkedNode(1);
+        b1.next=b2;
+        b2.next=b3;
+        b3.next=b4;
+        b4.next=b5;
+        b5.next=null;
+        
+        LinkedNode dum = addTwoLinkedList(a1,b1);
+        
+        while(dum != null){
+            System.out.println(dum.getVal());
+            dum = dum.next;
+        }
+    }
+    
+}
