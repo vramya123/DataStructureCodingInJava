@@ -1,0 +1,129 @@
+// Youtube Link for understanding : https://www.youtube.com/watch?v=L-8LVBPmIpc
+
+//You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
+//Merge all the linked-lists into one sorted linked-list and return it.
+
+
+//Input: lists = [[1,4,5],[1,3,4],[2,6]]
+//Output: [1,1,2,3,4,4,5,6]
+/** Explanation: The linked-lists are:
+[
+  1->4->5,
+  1->3->4,
+  2->6
+]
+merging them into one sorted list:
+1->1->2->3->4->4->5->6
+
+**/
+
+
+
+
+
+import java.io.*;
+import java.util.*;
+
+class LinkedNode{
+    
+    public int val;
+    public LinkedNode next;
+    public LinkedNode(){
+    }
+    public LinkedNode(int val){
+        this.val = val;
+        this.next = null;
+    }
+    public LinkedNode(int val, LinkedNode next){
+        this.val = val;
+        this.next = next;
+    }
+    
+}
+
+public class Solution{
+    
+    public static LinkedNode mergeKLinkedList(LinkedNode[] lists){
+        Queue<LinkedNode> hm = new PriorityQueue<>((a,b)-> a.val - b.val);
+        
+        LinkedNode dummy = new LinkedNode();
+        LinkedNode cur;
+        cur = dummy;
+        
+        for(LinkedNode l:lists){
+            if(l == null) continue;
+            hm.add(l);
+        }
+        
+        while(!hm.isEmpty()){
+            LinkedNode top = hm.poll();
+            cur.next = top;
+            cur = cur.next;
+            if(top.next != null){
+                hm.add(top.next);
+            }
+        }
+    
+        return dummy.next;
+        
+    
+    }
+    
+    
+    public static void main(String[] args){
+        //Input: lists = [[1,4,5],[1,3,4],[2,6]]
+        //Output: [1,1,2,3,4,4,5,6]
+        //1,4,5
+        
+        LinkedNode a1 = new LinkedNode(1);
+        LinkedNode a2 = new LinkedNode(4);
+        LinkedNode a3 = new LinkedNode(5);
+        
+        a1.next=a2;
+        a2.next=a3;
+        a3.next=null;
+        
+        
+        //1,3,4
+        
+        LinkedNode b1 = new LinkedNode(1);
+        LinkedNode b2 = new LinkedNode(3);
+        LinkedNode b3 = new LinkedNode(4);
+        b1.next=b2;
+        b2.next=b3;
+        b3.next=null;
+        
+        //2,6
+        LinkedNode c1 = new LinkedNode(2);
+        LinkedNode c2 = new LinkedNode(6);
+        c1.next=c2;
+        c2.next=null;
+        
+        LinkedNode[] list = new LinkedNode[3];
+        list[0] = a1;
+        list[1] = b1;
+        list[2] = c1;
+        
+        LinkedNode dum = mergeKLinkedList(list);
+        
+        while(dum != null){
+            System.out.print(dum.val);
+            dum = dum.next;
+        }
+    }
+    
+}
+
+
+https://www.softwaretestinghelp.com/java-priority-queue-tutorial/#Min_Priority_Queue_In_Java
+
+
+Queue<Integer> hm = new PriorityQueue<Integer>(new Comparator<Integer>(){
+  
+  public int compare(int lhs, int rhs){
+   if(lhs < rhs) return +1;
+   else if ( lhs == rhs) return 0;
+   else return -1;
+  }
+
+});
