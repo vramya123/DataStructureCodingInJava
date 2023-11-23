@@ -1,27 +1,7 @@
-Approach
-=========
-
-1) dummy is a new node used to track the head node of sum 
-prev is a pointer to dummy which is incremented each time
-LinkedNode dummy = new LinkedNode();
-LinkedNode prev = dummy;
-2) while wither one of the LL becomes null do below steps:
-1. get val and val2 
-2. compute sum with CF
-3. set back CF to zero
-4. Check if sum is greater than, if so set CF to 1
-5. Create a new node with sum value
-6. Update  links
-    prev.next = cur;
-	prev = cur;
-7. Update the l1 and l2 
- 
-3) After while loop, check if CF is greater than 1 then create new node and update only prev.next and cur is not needed as its end.
-4) return dummy;
-
-
-
-
+// Given two linked list as shown below, perform addition of them and store in new linked list
+// L1 = 1-> 2 -> 6 -> 4->5
+// L2 = 6-> 4 -> 5
+//sum = 7 -> 6 -> 1 -> 5 -> 5
 
 import java.io.*;
 import java.util.*;
@@ -73,12 +53,12 @@ public class Solution{
                 carryForward++;
             }
             
-            LinkedNode cur = new LinkedNode(sum);
+            LinkedNode cur = new LinkedNode(sum%10);
             
             prev.next = cur;
             prev = cur;
 			
-			l1 = l1 != null? l1.next : null;
+	    l1 = l1 != null? l1.next : null;
             l2 = l2!= null ? l2.next : null;
             
         }
