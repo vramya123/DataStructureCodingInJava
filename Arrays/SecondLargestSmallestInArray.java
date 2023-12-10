@@ -72,3 +72,7 @@ public class SecondLargestSmallestInArray{
     }
     
 }
+
+//o/p:- 
+//7,4
+//-3,1
