@@ -1,5 +1,5 @@
 //Remove duplicates from the given SORTED array and return the unique elements replaced at the begining of the array
-//IP :- { 2, 3,4,2,4, 5,6}
+
 
 //Youtube : https://www.youtube.com/watch?v=37E9ckMDdTk&list=PLgUwDviBIf0rENwdL0nEH0uGom9no0nyB
 
