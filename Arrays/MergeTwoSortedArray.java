@@ -75,7 +75,7 @@ public static void mergeTwoGivenSortedArrayWithOutAdditionalSpaceUsingGapApproac
             
             //Both pointers are in the b[] array ie, left > n && right > n        
             }else{
-                if(a[n-left] > b[n-right]){
+                if(a[left-n] > b[right-n]){
                     swap(a,b,left-n,right-n);
                 }
             }
