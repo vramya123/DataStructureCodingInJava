@@ -44,6 +44,8 @@ public class UnionIntersectionOfTwoSortedArray{
             j++;
         }
         return union;
+        //TC :  O(n+m)
+        //SC : O(n+m)
     }
     
     public static List<Integer> intersectionOfTwoSortedArray(int[] a, int [] b){
@@ -65,6 +67,8 @@ public class UnionIntersectionOfTwoSortedArray{
             }
         }
         return inter;
+        //TC :  O(n+m)
+        //SC : O(n+m)
     }
     
     
