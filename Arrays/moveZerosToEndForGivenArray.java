@@ -66,16 +66,7 @@ public class MoveZerosToEnd{
     
      }
      
-     
-     public static void reverse(int l, int h, int[] a){
-         int temp;
-         
-         while(l<=h){
-             temp = a[l];
-             a[l++]=a[h];
-             a[h--]=temp;
-         }
-     }
+  
     
     
     public static void main(String[] args){
