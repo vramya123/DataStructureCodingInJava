@@ -38,7 +38,7 @@ public class Queue{
     public static int poll(){
         int val = 0;
         if(count == 0){
-            
+            System.out.println("The queue is empty");
         }else{
             val = a[front % n];
             a[front % n] = -1;
