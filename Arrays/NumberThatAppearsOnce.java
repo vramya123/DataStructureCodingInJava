@@ -9,14 +9,15 @@ import java.util.*;
 
 public class NumberThatAppearsOnce{
     
-    
-    public static int findTheNumberThatAppearsOnce(int[] a){
+    //better solution using map
+    public static int findTheNumberThatAppearsOnceUsingMap(int[] a){
         
-        //better solution using map
+        
         int ans = -1;
-        Map<Long, Long> map = new LinkedHashMap<>();
+        Map<Integer, Integer> map = new LinkedHashMap<>();
         
         //put values in map
+        //Tc : O(NlogM) where M is size of map
         for(int i=0;i<a.length;i++){
             if(map.containsKey(a[i])){
                  int count = map.get(a[i]);
@@ -28,15 +29,45 @@ public class NumberThatAppearsOnce{
         }
         
         //Traverse the map
-       for(Map.Entry<Long,Long> entry : map.entrySet()){
+        //TC : O(N/2)+1  Each element appears more than once so its number of elements(N) by 2 plus that one element that appears once
+       
+       for(Map.Entry<Integer,Integer> entry : map.entrySet()){
            if(entry.getValue() == 1){
-               ans = entry.getkey();
+               ans = entry.getKey();
            }
        }
        
        return ans;
     }
     
-    
+     //optimal solution using xor
+     public static int findTheNumberThatAppearsOnceUsingXor(int[] a){
+         
+         int xor = 0;
+         
+         for(int i =0;i< a.length;i++){
+             xor ^= a[i];
+         }
+         
+         return xor;
+     }
+     
+     
+     public static void main(String[] args){
+         
+         int[] a = {-9,2,3,4,2,3,4,-3,-9};
+         
+         int val = findTheNumberThatAppearsOnceUsingXor(a);
+         System.out.println("The non repeating number using xor approach is :"+ val);
+         
+         val = findTheNumberThatAppearsOnceUsingMap(a);
+         System.out.println("The non repeating number using map approach is :"+ val);
+         
+         
+     }
     
 }
+
+//o/p
+//The non repeating number using xor approach is :-3
+//The non repeating number using map approach is :-3
