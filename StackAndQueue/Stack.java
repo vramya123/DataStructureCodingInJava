@@ -3,11 +3,11 @@
 // Youtube : https://www.youtube.com/watch?v=GYptUgnIM_I&list=PLgUwDviBIf0oSO572kQ7KCSvCUh1AdILj
 
 
-public class StackUsingArray{
+public class Stack{
     static int[] arr;
     static int top;
     
-    public StackUsingArray(int n){
+    public Stack(int n){
         arr = new int[n];
         top = -1;
     }
@@ -59,7 +59,7 @@ public class StackUsingArray{
     
     public static void main(String[] args){
         
-        StackUsingArray st = new StackUsingArray(4);
+        Stack st = new Stack(4);
         st.push(2);
         st.push(3);
         st.push(4);
