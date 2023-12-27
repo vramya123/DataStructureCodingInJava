@@ -60,7 +60,7 @@ public static void mergeTwoGivenSortedArrayWithOutAdditionalSpaceUsingGapApproac
     
     while(gap > 0){
         int left = 0;
-        int right = len+gap;
+        int right = left+gap;
         while(right < len){
             //one pointer in a[] array and one pointer in b[] array
             if(left < n && right >= n){
