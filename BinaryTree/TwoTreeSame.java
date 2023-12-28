@@ -28,7 +28,7 @@ public class TwoTreeSame{
         if(root1 == null || root2 == null)
           return (root1 == root2);
           
-        return (root1.val == root2.val) && checkIfTwoTreeAreSame(root1.left, root2.right) && checkIfTwoTreeAreSame(root1.right, root2.right);
+        return (root1.val == root2.val) && checkIfTwoTreeAreSame(root1.left, root2.left) && checkIfTwoTreeAreSame(root1.right, root2.right);
           
        
     }
