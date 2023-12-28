@@ -63,7 +63,7 @@ public class Solution{
             
         }
         if(carryForward != 0){
-            LinkedNode cur = new LinkedNode(1);
+            LinkedNode cur = new LinkedNode(carryForward);
             prev.next = cur;
         }
         
