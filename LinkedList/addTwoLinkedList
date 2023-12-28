@@ -50,7 +50,7 @@ public class Solution{
             
             //check if new sum is greater than 9 to fill carryforward
             if(sum > 9 ){
-                carryForward++;
+                carryForward = sum/10;
             }
             
             LinkedNode cur = new LinkedNode(sum%10);
