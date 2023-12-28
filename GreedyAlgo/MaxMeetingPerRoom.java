@@ -83,7 +83,7 @@ public class MaxMeetingPerRoom{
 		}
 	  }
 	  
-	  //print the meeting arralist to get sequence of meeting
+	  //print the meeting arraylist to get sequence of meeting
 	  for(int i=0;i<meetingsList.size();i++){
 	    System.out.println(meetingsList.get(i));
 	  }
@@ -94,10 +94,10 @@ public class MaxMeetingPerRoom{
 	 public static void main(String[] args){
 	   
 	   int[] start = {1,3,0,5,8,5};
-       int[] end =  {2,4,6,7,9,9};
-       int n =6;	   
+           int[] end =  {2,4,6,7,9,9};
+           int n =6;	   
 		
-		maxMeetingPerRoom(start,end,n);
+            maxMeetingPerRoom(start,end,n);
 		
 		
 	 }
