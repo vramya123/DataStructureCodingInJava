@@ -33,7 +33,7 @@ import java.util.*;
 public class UniquePathRightDown{
     
     
-    
+    //TC : O(2^m*n)  SC: O(path length) = O(m-1 + n-1)
     public static int uniquePathRightDownUsingRecursion(int i, int j){
         
         //base case
@@ -69,7 +69,7 @@ public class UniquePathRightDown{
     
     
     */
-    
+    //TC : O(N*M)[At max, we can make so many recusrion call]  SC : O(N-1 + M-1) [path  length] + O(N*M)[space for extra matrix]
     public static int uniquePathRightDownUsingMemoization(int i, int j, int[][] dp){
      
         if(i == 0 && j== 0){
@@ -91,6 +91,7 @@ public class UniquePathRightDown{
         return dp[i][j];
     }
     
+    //TC : O (N*M)  SC: O(N*M)
     public static int uniquePathRightDownUsingTabulation(int n, int m, int[][] dp){
      
         for(int i=0;i<n;i++){
@@ -111,6 +112,60 @@ public class UniquePathRightDown{
         return dp[n-1][m-1];
     }
     
+    //Tc: O(N*M)  SC: O(N)
+     public static int uniquePathRightDownUsingSpaceOptimization(int n, int m){
+     
+        int[] prev = new int[m];
+        for(int i=0;i<n;i++){
+            int[] tmp = new int[m];
+            for(int j=0;j<m;j++){
+                if(i==0 && j==0){
+                    tmp[j] = 1;
+                }else{
+                    int up =0;
+                    int left = 0;
+                    if(i > 0)
+                      up = prev[j];
+                    if(j >0)
+                      left = tmp[j-1];
+                    tmp[j] = up + left;
+                }
+            }
+            prev=tmp;
+        }
+        return prev[m-1];
+     }
+     
+     
+     //TC:- O(N)  SC :- O(1)
+     public static int uniquePathRightDownUsingCombinations(int n, int m){
+         
+      //make directions
+      int maxDirections = (m-1)+(n-1);
+      int r = n-1; //or m-1 ie, right or down directions
+      
+      int res = 1;
+      
+      /*
+        n= 2  m = 3
+        
+        maxDirections = n-1 + m-1 = 3
+        maxDirections            maxDirections
+                 C         or                 C
+                 n-1                          m-1
+        3                3
+         C  = 3/1=3         C   = 2*3/2*1 = 3
+          1                 2
+                 
+      */
+      for(int i=1;i<=r;i++){
+          res = res * (maxDirections-r+i)/i;
+      }
+      
+      return res;
+         
+     }
+    
     
     public static void main(String[] args){
         
@@ -129,6 +184,12 @@ public class UniquePathRightDown{
         
         System.out.println("The maximum unique path using Tabulation is "+uniquePathRightDownUsingTabulation(n,m,dp));
         
+        System.out.println("The maximum unique path using Space Optimization  is "+uniquePathRightDownUsingSpaceOptimization(n,m));
+        
+         System.out.println("The maximum unique path using Combinations  is "+uniquePathRightDownUsingCombinations(n,m));
+        
+        
+        
     }
 }
 
@@ -138,6 +199,6 @@ o/p:-
 The maximum unique path using recursion is 10
 The maximum unique path using memoization is 10
 The maximum unique path using Tabulation is 10
-
+The maximum unique path using Space Optimization  is 10
+The maximum unique path using Combinations  is 10
 */
-
