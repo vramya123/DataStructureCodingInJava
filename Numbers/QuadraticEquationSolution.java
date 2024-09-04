@@ -16,7 +16,7 @@ public class QuadraticEquationSolution{
         if(discriminator == 0){
             
             System.out.println("The roots are real and equal");
-            double r1 = -b/ (2*a * c);
+            double r1 = -b/ (2*a);
             res.add(r1);
             res.add(r1);
         }else if (discriminator > 0){
@@ -34,7 +34,7 @@ public class QuadraticEquationSolution{
         }else{
             
             System.out.println("the roots are imaginary and distinict");
-            double r1 = -b /(2*a*c);
+            double r1 = -b /(2*a);
             double r2 = Math.sqrt(- discriminator )/(2*a);
             res.add(r1);
             res.add(r2);
