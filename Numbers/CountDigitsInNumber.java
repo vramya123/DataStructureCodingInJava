@@ -41,3 +41,12 @@ public class CountDigitsInNumber{
 }
 
 //o/p:- the no of digits for 5678 is:4
+
+/* Recursiobn version
+ static int countDigit(long n)
+	{
+		if (n/10 == 0)
+			return 1;
+		return 1 + countDigit(n / 10);
+	}
+*/
