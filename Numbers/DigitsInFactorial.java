@@ -35,6 +35,7 @@ import java.math.*;
 
 public class DigitdInFactorial{
     
+    //overflow for slightly bigger numbers as the factorial of a number is a big number
     //Slower for larger number due to large number multiplication
     public static int findTheNoOfDigitsInFactorialUsingBigInt(int n){
         
