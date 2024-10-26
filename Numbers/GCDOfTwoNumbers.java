@@ -67,6 +67,7 @@ public class GCDOfTwoNumbers{
     
     // TC = O(log(min(a,b)))
     //time complexity of the algorithm increases linearly as the terms grow exponentially hence the time complexity would be log(min(a,b)).
+    //we continuously divide the bigger number by the smaller number
     static int findTheGCDOfTwoNumbersUsingEuclideanApproachOptimized(int a , int b){
         
         //base case
