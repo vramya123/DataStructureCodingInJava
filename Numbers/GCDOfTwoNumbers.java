@@ -2,6 +2,12 @@
 
 GCD (Greatest Common Divisor) or HCF (Highest Common Factor) of two numbers is the largest number that divides both of them. 
 
+ 36 = 2* 2* 3* 3
+ 60 =  2* 2* 3* 6
+
+ GCD = Multiplication of common factors 
+      = 2* 2* 3
+      = 12
 
 */
 
