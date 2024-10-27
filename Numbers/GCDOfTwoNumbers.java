@@ -17,13 +17,11 @@ import java.util.*;
 
 
 public class GCDOfTwoNumbers{
-    
-    
-    
-    
+
     //Naive approach
     // TC = O(min(a,b))
     //We take a min number of the given pair and keep checking if it divides both numbers while we decrement after each run
+    //GCD is always less than or equal to smallest of given  two numbers 
     static int findTheGCDOfTwoNumbersUsingNaiveApproach(int a, int b){
         
          //Everything divides 0
