@@ -2,6 +2,10 @@
 
 Set the K-th bit of a given number
 
+Given a number n and a value k. From the right, set the kth bit in the binary representation of n. 
+The position of LSB(or last bit) is 0, second last bit is 1 and so on. 
+Also, 0 <= k < x, where x is the number of bits in the binary representation of n.
+
 Ref :- https://www.geeksforgeeks.org/set-k-th-bit-given-number/
 
 Input : n = 10, k = 2
