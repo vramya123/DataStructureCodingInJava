@@ -395,6 +395,242 @@ public class Patterns{
              alpha += 1;
          }
      }
+     
+     
+     /*
+          A
+        A B A
+     A  B C B A
+     
+     n=3
+     
+      [ space, characters, Space]
+     0 [2 , 1 , 2]
+     1 [1 , 3,  1]
+     2 [0,  5,  0]
+     
+     [n-i-1 , 2i+1, n-i-1]
+     
+     */
+     public static void pattern16(int n){
+         for(int i = 0;i< n;i++){
+             //space
+             for(int j = 0;j< n-i-1;j++){
+                 System.out.print(" ");
+             }
+             
+             
+             //Characters
+             char chara = 'A';
+             int breakpointOfSymmetry = (2*i+1)/2;
+             for(int j = 0;j< 2*i+1;j++){
+                 System.out.print(chara);
+                 if(j>= breakpointOfSymmetry)
+                  chara--;
+                 else
+                  chara++;
+                 
+             }
+             
+             
+             //space
+             for(int j = 0;j< n-i-1;j++){
+                 System.out.print(" ");
+             }
+             System.out.println();
+         }
+     }
+     
+     
+     /*
+     
+     E
+     D E
+     C D E
+     
+     n = 3
+     
+      E , E-1 = D, E-2 = C
+     
+     */
+     
+      public static void pattern17(int n){
+         for(int i = 0;i<n;i++){
+             for(char ch = (char) ('E' - i) ;ch <= 'E';ch++){
+                 System.out.print(ch);
+             }
+             System.out.println();
+         }
+      }
+      
+      /*
+      
+        * * * * * *
+        * *     * *
+        *         *
+        *         *
+        * *     * *
+        * * * * * *
+        
+        first symmetry
+        ------------------
+        n = 3
+      
+        [ stars , space, stars]
+       1 [  3 , 0 , 3]
+       2 [  2,  2,  2]
+       3 [  1,  4,  1]
+        
+        [n-i+1 , increment by 2, n-i+1]
+        
+        
+        second symmetry
+        ---------------
+        n = 3
+        
+        
+        [ stars , space, stars]
+       1 [  1 , 4 , 1]
+       2 [  2,  2,  2]
+       3 [  3,  0,  3]
+        
+        [i , decrement by 2 ( 2n-2) , i]
+          
+      
+      
+      */
+       public static void pattern18(int n){
+         
+         //Top symmetry
+         int space = 0;
+         for(int i = 1;i<=n;i++){
+             
+             
+             //stars
+             for(int j = 1; j <= n-i+1;j++){
+                 System.out.print("*");
+             }
+             
+             
+             //space
+             for(int j = 0;j<space;j++){
+                 System.out.print(" ");
+             }
+             
+             
+             //stars
+             for(int j = 1; j <= n-i+1;j++){
+                 System.out.print("*");
+             }
+             System.out.println();
+             space+=2;
+         }
+         
+         //Bottom symmetry
+         space = 2*n -2;
+         for(int i = 1;i<=n;i++){
+             
+             
+             //stars
+             for(int j = 1; j <= i;j++){
+                 System.out.print("*");
+             }
+             
+             
+             //space
+             for(int j = 0;j<space;j++){
+                 System.out.print(" ");
+             }
+             
+             
+             //stars
+             for(int j = 1; j <= i;j++){
+                 System.out.print("*");
+             }
+             System.out.println();
+             space-=2;
+         }
+         
+      }
+      
+      /*
+      
+      *         *
+      * *     * *
+      * * * * * *
+      * *     * *
+      *         *
+      
+      n = 3
+      
+      rows = 2*n-1
+      
+      [ stars, space, stars]
+       1 [ 1, 4, 1]
+       2 [ 2, 2, 2]
+       3 [ 3, 0, 3]
+       4 [ 2, 2, 2]
+       5 [ 1, 4, 1]
+       
+       
+      */
+       public static void pattern19(int n){
+         
+         int stars = 0;
+         int space = 2*n-2;
+         for(int i = 1;i<=2*n-1;i++){
+             
+             if(i>n)
+                stars = 2*n-i;
+             else
+                stars = i;
+             //stars
+             for(int j = 1; j <= stars;j++){
+                 System.out.print("*");
+             }
+             
+             
+             //space
+             
+             for(int j = 1;j<=space;j++){
+                 System.out.print(" ");
+             }
+             
+             
+             //stars
+             for(int j = 1; j <= stars;j++){
+                 System.out.print("*");
+             }
+             System.out.println();
+             if(i >= n)
+              space+=2;
+             else
+              space-=2;
+         }
+       }
+       
+       /*
+       
+       * * * 
+       *   *
+       * * *
+       
+       Stars only in the border , so i =0, j=0, i=n-1, j=n-1
+       
+       */
+         public static void pattern20(int n){
+         
+           for(int i =0;i<n;i++){
+               for(int j=0;j<n;j++){
+                   if(i==0 || j ==0 || i == n-1 || j== n-1){
+                       System.out.print("*");
+                   }else{
+                        System.out.print(" ");
+                   }
+               }
+               System.out.println();
+           }
+         }
     
     public static void main(String[] args){
         int n = 3;
@@ -425,9 +661,19 @@ public class Patterns{
         
         pattern14(5);
         
+        pattern15(5);
+        
+        pattern16(5);
+         
+        pattern17(3);
+         
+        pattern18(3);
+        
+        pattern19(3);
+        
         
         */
-        pattern15(5);
+        pattern20(3);
         
     }
 }
