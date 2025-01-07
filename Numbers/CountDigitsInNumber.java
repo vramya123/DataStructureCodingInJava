@@ -1,6 +1,6 @@
 /*
  Count the number of Digits 
- TC :- O(n) where n is the number of digits
+ TC :- Olog10(n) where n is the number of digits bcz we we are dividing the number by 10 each time
  */
 
 
@@ -22,6 +22,8 @@ public class CountDigitsInNumber{
             
             noOfDigits++;
         }
+
+       //another one liner approach is noOfDigits = (int) Math.log10(num)+1;
         
         return noOfDigits;
     }
