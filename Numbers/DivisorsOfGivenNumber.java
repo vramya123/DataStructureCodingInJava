@@ -30,6 +30,21 @@ public class DivisorsOfGivenNumber{
     i = 2, i >=1 , 5%2 != 0
     i = 1 , i >=1 , 5%1 == 0 print 5/1 = 5
     
+    
+    Striver:-
+    
+    36
+    
+    1 * 36       i * n/i = 1 * 36/1 = 1 * 36 , so second factor can be obtainged by dividing n by i 
+    2 * 18
+    3 * 12
+    4 * 9
+    6 * 6 ========== sqrt(36) After this point the factors just repeat in incraesing fashion of n/i 
+    9 * 4
+    12 * 3 
+    18 * 2 
+    36 * 1
+    
     */
     public static void allDivisorsOfGivenNumber(int n){
         
@@ -57,10 +72,10 @@ public class DivisorsOfGivenNumber{
     
     public static void main(String[] args){
         
-        int n = 25;
+        int n = 161;
         
         allDivisorsOfGivenNumber(n);
     }
 }
 
-//o/p:-  1,5,25
+//o/p:- 1 7 23 161 
