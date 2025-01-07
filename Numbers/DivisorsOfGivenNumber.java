@@ -63,4 +63,4 @@ public class DivisorsOfGivenNumber{
     }
 }
 
-//o/p:-  1,5 ,
+//o/p:-  1,5,25
