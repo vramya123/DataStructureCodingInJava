@@ -53,7 +53,7 @@ public class GCDOfTwoNumbers{
         
         //Everything divides 0
         if(a == 0)
-         return b;
+         return a;
          
         if(b == 0)
            return b;
@@ -81,6 +81,21 @@ public class GCDOfTwoNumbers{
         return findTheGCDOfTwoNumbersUsingEuclideanApproachOptimized(b, a%b);
         
     }
+
+ //or
+
+ //Ref :- https://www.youtube.com/watch?v=1xNbjMdbjug&list=PLgUwDviBIf0oF6QL8m22w1hIDC1vJ_BHz&index=8
+  static int findTheGCDOfTwoNumbersUsingEuclideanApproachOptimizedIterative(int a, int b){
+
+   while( a > 0 && b > 0 ){
+    if(a > b)
+       a = a%b;
+      else
+      b = b%a;
+   }
+   if(a == 0) return b;
+   return a;
+  }
     
     public static void main(String[] args){
         
