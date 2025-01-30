@@ -81,7 +81,9 @@ public class MarkRowcolTo0IfRowOrColIs0{
          }
      }
      
-     return mat;
+     
+      return mat;
+     
     }
     
      //mark the row  with 0 as -1
@@ -105,6 +107,43 @@ public class MarkRowcolTo0IfRowOrColIs0{
     }
     
     
+    
+    
+     //brute force with TC = O(n*m) 
+    public static int[][] givenTheMatrixMarkRowColToZeroEfficiently(int[][] mat){
+     
+     int n = mat.length;
+     int m = mat[0].length;
+     int[] row = new int[mat.length];
+     int[] col = new int[mat[0].length];
+     
+     Arrays.fill(row,0);
+      Arrays.fill(col,0);
+     
+     //traverse array to check if entry is 0
+     for(int i=0;i<n;i++){
+         for(int j = 0;j<m;j++){
+             if(mat[i][j] == 0){
+                //mark the row and col with 0 as -1
+                row[i] = 1;
+                col[j] = 1;
+             }
+         }
+     }
+     
+     //traverse array to mark all  row and col with 1 as 0
+     for(int i=0;i<n;i++){
+         for(int j = 0;j<m;j++){
+             if(row[i] == 1 || col[j] == 1){
+                 mat[i][j] = 0;
+             }
+         }
+     }
+     
+     return mat;
+    }
+    
+    
     public static void main(String[] args){
         
         int[][] a = { {1,2,0},
@@ -119,6 +158,18 @@ public class MarkRowcolTo0IfRowOrColIs0{
             }
             System.out.println();
         }
+        
+         int[][] b = { {1,2,0},
+        {2,1,0},
+        {1,0,1}};
+        
+        givenTheMatrixMarkRowColToZeroEfficiently(b);
+         for(int i = 0;i<a.length;i++){
+            for(int j = 0;j<a[0].length;j++){
+                System.out.print(b[i][j]);
+            }
+            System.out.println();
+        }
     }
 }
 
@@ -128,8 +179,19 @@ i/p:-
 0 1 0
 1 1 1
 
+
+
+1 2 0
+2 1 0
+1 0 1
+
 o/p:-
 020
 000
 010
 
+
+000
+000
+000
+*/
