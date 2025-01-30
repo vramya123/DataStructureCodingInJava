@@ -47,6 +47,9 @@ Sample Output 2:
 
 5 
 
+
+youtube:- https://www.youtube.com/watch?v=N0MgLvceX7M
+
 */
 
 import java.io.*;
@@ -109,7 +112,7 @@ public class MarkRowcolTo0IfRowOrColIs0{
     
     
     
-     //brute force with TC = O(n*m) 
+     // TC = O(n*m) , SC = O(n) + O(m)
     public static int[][] givenTheMatrixMarkRowColToZeroEfficiently(int[][] mat){
      
      int n = mat.length;
@@ -143,6 +146,59 @@ public class MarkRowcolTo0IfRowOrColIs0{
      return mat;
     }
     
+    // TC = O(n*m) , SC = O(1)
+    public static int[][] givenTheMatrixMarkRowColToZeroEfficientlyWithMinimalSapce(int[][] mat){
+        
+        int col0 = 0;
+        
+        for(int i=0;i<mat.length;i++){
+            for(int j =0;j<mat[0].length;j++){
+                if(mat[i][j] == 0){
+                    //mark row array to 0
+                    mat[i][0] = 0;
+                    
+                    //mark col array to 0
+                    
+                    if(j > 0){
+                        mat[0][j] = 0;
+                    }else{
+                       col0 = 0;
+                    }
+                }
+                
+            }
+        }
+        
+        //Traverse all elements in array except 1st row and 1st col
+        for(int i=1; i<mat.length;i++){
+            for(int j =1;j<mat[0].length;j++){
+                if(mat[i][j] != 0){
+                    if(mat[i][0] == 0 || mat[0][j] ==0){
+                        mat[i][j] = 0;
+                    }
+                }
+            }
+        }
+        
+        
+        //Traverse first row
+        if(mat[0][0] == 0){
+            for(int j =0;j<mat[0].length;j++){
+                mat[0][j] = 0;
+            }
+        }
+        
+        //Traverse first col
+        if(col0 ==0 ){
+            for(int i=0;i<mat.length;i++){
+             mat[i][0] = 0;   
+            }
+        }
+        
+        return mat;
+        
+    }
+    
     
     public static void main(String[] args){
         
@@ -159,6 +215,8 @@ public class MarkRowcolTo0IfRowOrColIs0{
             System.out.println();
         }
         
+         System.out.println("===================");
+        
          int[][] b = { {1,2,0},
         {2,1,0},
         {1,0,1}};
@@ -170,28 +228,37 @@ public class MarkRowcolTo0IfRowOrColIs0{
             }
             System.out.println();
         }
+        
+         System.out.println("===================");
+         
+          int[][] c = { {1,2,2},
+        {2,1,3},
+        {1,0,1}};
+        
+        givenTheMatrixMarkRowColToZeroEfficientlyWithMinimalSapce(c);
+         for(int i = 0;i<a.length;i++){
+            for(int j = 0;j<a[0].length;j++){
+                System.out.print(c[i][j]);
+            }
+            System.out.println();
+        }
+        
+         System.out.println("===================");
     }
 }
 
 /*
-i/p:-
-1 2 0
-0 1 0
-1 1 1
 
-
-
-1 2 0
-2 1 0
-1 0 1
-
-o/p:-
 020
 000
 010
-
-
+===================
 000
 000
 000
+===================
+002
+003
+000
+===================
 */
