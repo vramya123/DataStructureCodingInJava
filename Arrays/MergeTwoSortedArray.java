@@ -67,16 +67,15 @@ public static void mergeTwoGivenSortedArrayWithOutAdditionalSpaceUsingGapApproac
                if(a[left] > b[right-n]){
                    swap(a,b,left,right-n);
                }
-            //Both pointers are in the a[] array
-            }else if( left < n && right < n){
-                if(a[left] > b[right]){
-                    swap(a,b,left,right);
-                }
-            
-            //Both pointers are in the b[] array ie, left > n && right > n        
-            }else{
+            //Both pointers are in the b[] array ie, left > n && right > n  
+            }else if( left >= n){
                 if(a[left-n] > b[right-n]){
                     swap(a,b,left-n,right-n);
+                }
+            //Both pointers are in the a[] array
+            }else{
+                if(a[left] > b[right]){
+                    swap(a,b,left,right);
                 }
             }
             
@@ -85,10 +84,10 @@ public static void mergeTwoGivenSortedArrayWithOutAdditionalSpaceUsingGapApproac
             
         }
         gap = (gap/2) + (gap %2);
-        if(gap ==1) break;
+        if(gap == 1) break;
     }
     
-    //TC : O(log(n+m)) +O(n+m)
+    //TC : O(log(n+m)) * O(n+m)
     //SC : O(1)
     
 }
