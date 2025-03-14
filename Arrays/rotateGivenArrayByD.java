@@ -2,6 +2,8 @@
 
 //Youtube :- https://www.youtube.com/watch?v=wvcQg43_V8U&list=PLgUwDviBIf0rENwdL0nEH0uGom9no0nyB&index=3
 
+//TC = O(2N) = O(d) + O(n-d) + O(n)
+
 
 import java.io.*;
 import java.util.*;
