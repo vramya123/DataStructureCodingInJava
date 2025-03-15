@@ -3,6 +3,7 @@
 
 
 //Youtube : https://www.youtube.com/watch?v=Yt50Jfbd8Po&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=16
+//TC = O (n) where n is number of nodes
 
 import java.io.*;
 import java.util.*;
@@ -28,10 +29,9 @@ public class BalancedBinaryTree{
           return 0;
           
         int l = checkBalancedBinaryTree(root.left);
+         if(l == -1 ) return -1;
         int r = checkBalancedBinaryTree(root.right);
-        
-        if(l == -1 || r == -1) return -1;
-        
+         if(r == -1 ) return -1;
         if(Math.abs(l-r) >1) return -1;
         
         return 1+ Math.max(l,r);
