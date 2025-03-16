@@ -1,5 +1,3 @@
-Try AI directly in your favorite apps … Use Gemini to generate drafts and refine content, plus get Gemini Advanced with access to Google’s next-gen AI for ₹1,950.00 ₹0 for 1 month
-deletebst.txt
 https://www.youtube.com/watch?v=F6kgir_v6AU&t=2s
 
 o(log n)
