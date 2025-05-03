@@ -65,7 +65,7 @@ public class SumOfNumbersEqualToTarget{
         
         Arrays.sort(num);
         
-        for(int i=0;i<num.length;i++){
+        while(low<=high){
             if(num[low]+ num[high] == target){
                 return "yes";
             }else if(num[low] + num[high] < target){
