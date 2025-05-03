@@ -60,8 +60,8 @@ public class SumOfNumbersEqualToTarget{
     
     public static String sumOfNumbersEqualToTargetUsingTwoPointerApproach(int[] num, int target){
         
-        int low = num[0];
-        int high = num[num.length -1];
+        int low = 0;
+        int high = num.length -1;
         
         Arrays.sort(num);
         
