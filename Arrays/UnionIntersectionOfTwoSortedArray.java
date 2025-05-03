@@ -32,13 +32,13 @@ public class UnionIntersectionOfTwoSortedArray{
             }
         }
         
-        if(i < n1){
+        while(i < n1){
             if(union.get(union.size()-1) != a[i])
                union.add(a[i]);
             i++;
         }
         
-        if( j < n2){
+        while( j < n2){
             if(union.get(union.size()-1) != b[j])
                 union.add(b[j]);
             j++;
