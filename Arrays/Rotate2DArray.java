@@ -3,7 +3,7 @@
 youtube:- https://www.youtube.com/watch?v=Z0R2u6gd3GU
 
 
-TC = 
+TC = O(n/2 * n/2) + O(n * n/2) = O(n2)
 
 
 */
