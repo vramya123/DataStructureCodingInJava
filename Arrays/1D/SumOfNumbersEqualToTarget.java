@@ -42,6 +42,11 @@ public class SumOfNumbersEqualToTarget{
     }
     
     // TC :- O(NlogN) ordered hashMap else it will O(N2)   Sc :- O(N)
+    /*
+    Time Complexity:
+map : O ( l o g n ) O(log n) O(logn) for insertion, deletion, and finding.
+unordered_map : Average O ( 1 ) O(1) O(1) for insertion, deletion, and finding. Worst case O ( n ) O(n) O(n) due to hash collisions.
+    */
     public static int[] sumOfNumbersEqualToTargetBetterApproach(int[] num, int target){
         
         Map<Integer, Integer> map = new HashMap<>();
