@@ -57,7 +57,7 @@ public class LongestSubStringWithAllUniqueCharacters{
                 j++;
             }else if(map.size() < j-i+1){
                 
-                while( i <=j && map.size() < k){
+                while( i <=j && map.size() < j-i+1){
                         int val  = map.getOrDefault(str.charAt(i),0);
                         map.put(str.charAt(i), val -1);
                         if(map.get(str.charAt(i)) == 0){
@@ -77,8 +77,10 @@ public class LongestSubStringWithAllUniqueCharacters{
         
         String str = "abcabcbb";
         
-        System.out.println("The longest subarray with "+k+" unique characters is :"+ findTheLongestSubstringWithAllUniqueCharacters(str));
+        System.out.println("The longest subarray with all unique characters is :"+ findTheLongestSubstringWithAllUniqueCharacters(str));
 
       }
       
 }
+
+//o/p:- The longest subarray with all unique characters is :3
