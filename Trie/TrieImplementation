@@ -105,3 +105,11 @@ public class Solution{
 	}
 
 }
+
+/*
+
+The word bat  exists in Trie : true
+The word begining with app exists in Trie : true
+The word bat  exists in Trie : false
+
+*/
