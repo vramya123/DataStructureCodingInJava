@@ -73,10 +73,16 @@ public class StockSpan{
         }
         
         //Minus the base index with NGL idex to get teh count
-        
+        /*
         for(int i =0;i< res.size();i++){
             finalres.add(i-res.get(i));
         }
+        */
+        finalres = IntStream.range(0, res.size())
+            .map(i -> i - res.get(i))
+            .boxed()
+            .toList();
+        
         
         return finalres;
     }
