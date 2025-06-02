@@ -39,16 +39,15 @@ class Node{
   }
 
 }
+ class Trie {
 
-public class Trie {
-
-    static Node root;
+    Node root;
 	
 	public Trie(){
 	    root = new Node();
 	}
 	
-	public static void  insert(String word){
+	public  void  insert(String word){
 	    Node node = root;
 		for(int i =0;i< word.length();i++){
 		    if(!node.containsKey(word.charAt(i))){
@@ -62,7 +61,7 @@ public class Trie {
 	}
 	
 	
-	public static boolean search(String word){
+	public  boolean search(String word){
 	  Node node = root;
 	  for(int i=0;i<word.length();i++){
 	     if(!node.containsKey(word.charAt(i))){
@@ -75,7 +74,7 @@ public class Trie {
 	
 	}
 	
-	public static boolean wordStartsWith(String word){
+	public  boolean wordStartsWith(String word){
 	   Node node = root;
 	   for(int i=0;i<word.length();i++){
 	     if(!node.containsKey(word.charAt(i))){ 
@@ -87,6 +86,10 @@ public class Trie {
 	    return true;
 	
 	}
+}
+
+
+public class Solution{
 	
 	
 	public static void main(String[] args){
