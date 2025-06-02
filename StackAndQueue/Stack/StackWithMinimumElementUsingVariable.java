@@ -31,6 +31,7 @@ public class StackWithMinimumElementUsingVariable{
     }
     
     public static int pop(){
+        int tmpAns = 0;
         if(s.size() == 0){
             return -1;
         }else{
@@ -38,9 +39,10 @@ public class StackWithMinimumElementUsingVariable{
             if(ans >= minEle){
                 s.pop();
             }else{
-                ans = minEle;
+                tmpAns = minEle;
                 minEle = 2*minEle-ans;
                 s.pop();
+                ans = tmpAns;
             }
             return ans;
         }
