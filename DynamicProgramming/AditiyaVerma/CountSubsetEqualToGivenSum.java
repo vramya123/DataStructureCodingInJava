@@ -38,7 +38,7 @@ public class CountSubsetEqualToGivenSum{
       
         
         
-    //choide diagram
+    //choice diagram
     // w -> sum , wt -> arr , val -> x (val is not given, when given one array , just use it as weight array)
     
     for(int i = 1;i<n+1;i++){
@@ -72,4 +72,4 @@ public class CountSubsetEqualToGivenSum{
     }
 }
 
-//o/p:- The equal sum partition is possible:true/* 
+//The count of subsets equal to given sum is:3
